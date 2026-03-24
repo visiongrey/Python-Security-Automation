@@ -9,7 +9,7 @@ def run_scripts(script):
         print(f"#############\nFAIL: {script}\n#############\n")
 
 if __name__ == "__main__":    
-    scripts = ['parse_fwlogs.py','match_fwrules.py','api_requests.py']
+    scripts = ['parse_fwlogs.py','match_fwrules.py','api_requests.py', 'ssh_executecmd.py']
     with concurrent.futures.ThreadPoolExecutor() as exec:
         exec.map(run_scripts, scripts)
 
