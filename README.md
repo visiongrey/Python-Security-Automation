@@ -4,13 +4,14 @@
 ![Security](https://img.shields.io/badge/Domain-Cybersecurity-red)
 ![Automation](https://img.shields.io/badge/Focus-Automation-green)
 
-A collection of **Python automation scripts** that simulate common tasks in **security testing and log analysis environments**.
+A collection of **Python automation scripts** that simulate common tasks in **security testing, remote access, and log analysis environments**.
 
 This project demonstrates practical skills useful for **security engineering, test automation, and DevSecOps**, including:
 
 - Firewall log parsing
 - IP/CIDR rule matching
 - REST API interaction
+- SSH-based remote command execution
 - Concurrent script execution
 - File processing and JSON handling
 
@@ -27,6 +28,7 @@ Python-Security-Automation/
 ├── parse_fwlogs.py        # Parses firewall logs and detects suspicious IPs
 ├── match_fwrules.py       # Matches IPs against firewall rules
 ├── api_requests.py        # Demonstrates REST API GET/POST automation
+├── ssh_executecmd.py      # Executes remote Linux commands over SSH
 │
 ├── firewall_logs.txt      # Sample firewall log file
 ├── ip_list.txt            # Input list of IPs
@@ -46,10 +48,10 @@ Python-Security-Automation/
              |    main.py     |
              +--------+-------+
                       |
-          ---------------------------
-          |            |            |
-   parse_fwlogs   match_fwrules   api_requests
-   (log analysis) (rule matching) (API testing)
+          ------------------------------------------------
+          |            |            |                    |
+   parse_fwlogs   match_fwrules   api_requests    ssh_executecmd
+  (log analysis) (rule matching) (API testing)  (remote command execution)
 ```
 
 Each script performs a **different security automation task**.
@@ -144,6 +146,38 @@ https://api.restful-api.dev/objects
 
 ---
 
+## 4️⃣ SSH Remote Command Execution (`ssh_executecmd.py`)
+
+Executes Linux commands on a remote system using **SSH (Paramiko)**.
+
+This simulates real-world tasks such as:
+
+- Remote system inspection
+- Secure command execution
+- Automation of administrative/security checks
+
+### Key Concepts Demonstrated
+
+- SSH connections using `paramiko`
+- Remote command execution
+- Secure credential handling (basic example)
+- Exception handling in network operations
+
+### Example Code Behavior
+
+- Connects to a remote host
+- Executes a Linux command (`cat /etc/hosts`)
+- Prints the output
+
+### Example Output
+
+```
+Output: 127.0.0.1 localhost
+...
+127.0.0.1 bandit bandit.labs.overthewire.org
+```
+---
+
 # 🚀 Running the Project
 
 ## 1️⃣ Clone the Repository
@@ -183,6 +217,10 @@ PASS: match_fwrules.py
 #############
 PASS: api_requests.py
 #############
+
+#############
+PASS: ssh_executecmd.py
+#############
 ```
 
 ---
@@ -199,6 +237,7 @@ This project showcases several **security engineering and automation skills**:
 - Concurrent task execution
 - Error handling
 - File and JSON processing
+- SSH automation (Paramiko)
 
 ---
 
@@ -212,6 +251,7 @@ This type of automation can be used in:
 - Security test automation
 - DevSecOps pipelines
 - API security testing
+- Remote system auditing via SSH
 
 ---
 
@@ -219,13 +259,13 @@ This type of automation can be used in:
 
 Future enhancements could include:
 
-- Parallel log parsing for large files
-- CIDR matching optimization
-- Support for IPv6
+- SSH key-based authentication support
+- Secure credential storage (Vault, AWS Secrets Manager)
+- Parallel SSH execution across multiple hosts
 - Integration with SIEM tools
-- Unit tests with `pytest`
-- Logging with Python `logging` module
+- Unit tests with pytest
+- Logging with Python logging module
 - Docker containerization
-
+- Role-based remote command execution
 ---
 
